@@ -1,0 +1,12 @@
+{
+  "name": "gulp-js-decache-inplace",
+  "description": "An example that shows how to decache a file",
+  "version": "0.0.0",
+  "main": "gulpfile.js",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}

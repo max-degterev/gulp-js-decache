@@ -1,0 +1,7 @@
+examples/
+.eslintignore
+.eslintrc
+.gitignore
+.npmignore
+.travis.yml
+test.js
