@@ -72,7 +72,7 @@ const getReplacement = (statement, options) => {
     replacement = fileUrl + prefix + insert;
   }
 
-  return `url("${replacement}")`;
+  return `'${replacement}'`;
 };
 
 const decacheFile = (source, options) => {
