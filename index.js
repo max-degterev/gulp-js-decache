@@ -10,7 +10,7 @@ const PluginError = require('plugin-error');
 const log = require('fancy-log');
 
 const PLUGIN_NAME = 'gulp-js-decache';
-const REGEX = '["\']([a-zA-Z0-9\\/\\.\\?=\\-_#@]+)["\']';
+const REGEX = '("|\')([a-zA-Z0-9\\/\\.\\-_@]+\\.(?:jpe?g|gif|png|svg)[a-zA-Z0-9\\/\\.\\?=\\-_#@]*)\\1';
 const ENCODING = 'utf8';
 
 const DEFAULT_OPTIONS = {
@@ -55,7 +55,7 @@ const getBuster = (urlPath, options) => {
 };
 
 const getReplacement = (statement, options) => {
-  const fileUrl = statement.match(new RegExp(REGEX))[1];
+  const [quote, fileUrl] = statement.match(new RegExp(REGEX)).splice(1);
 
   const prefix = fileUrl.includes('?') ? '&' : '?';
   const buster = getBuster(fileUrl, options);
@@ -72,7 +72,7 @@ const getReplacement = (statement, options) => {
     replacement = fileUrl + prefix + insert;
   }
 
-  return `'${replacement}'`;
+  return `${quote}${replacement}${quote}`;
 };
 
 const decacheFile = (source, options) => {
