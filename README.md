@@ -23,6 +23,7 @@ gulp.task('decache', function() {
 });
 ```
 
+It is best to run this on already processed and minified files with all of the optimizations applied.
 
 ## License
 
