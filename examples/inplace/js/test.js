@@ -13,6 +13,8 @@ const refWithHashQuery = "plainDoge-700x525.jpg?tough=cookie#ololohash";
 
 const missingRef = "doesntexist.jpg";
 
+const ignoredMissingRef = "skipped.jpg";
+
 const decachedRef = '/plainDoge-700x525.jpg?decache=done';
 
 funcCall('/plainDoge-700x525.jpg');
